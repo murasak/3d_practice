@@ -14,7 +14,8 @@ animate();
 canvas.on({
 	'object:modified': setupCanvasDrawing,
 	'object:moving' : setupCanvasDrawing,
-	'text:changed' : setupCanvasDrawing
+	'text:changed' : setupCanvasDrawing,
+	'after:render': setupCanvasDrawing
 });
 
 function init() {
@@ -36,6 +37,9 @@ function init() {
 	textbox = initTextBox();
 	canvasColor = addCanvasColor();
 	textbox.bringToFront();
+	// setupCanvasDrawing();
+	// animate();
+
 }
 // Sets up the drawing canvas and adds it as the material map.
 function setupCanvasDrawing() {

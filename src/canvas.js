@@ -6,6 +6,14 @@ var canvas, canvasColor, textbox;
 
 export function initCanvas() {
 	canvas = new fabric.Canvas('drawing-canvas');
+	var img = new Image();
+	img.onload = function(){
+		var oImg = new fabric.Image(img,{selectable:false});
+		canvas.add(oImg);
+		oImg.sendToBack();
+	}
+	img.src = pic;
+	// img.sendToBack();
 	// canvas.setBackgroundImage(pic,canvas.renderAll.bind(canvas));
 	// var rect = new fabric.Rect({
 	//   fill: 'red',
@@ -16,6 +24,12 @@ export function initCanvas() {
 
 	// canvas.add(rect);
 	// canvas.renderAll();
+	// canvasColor = addCanvasColor();
+	// textbox = initTextBox();
+	// canvas.add(canvasColor,textbox);
+	// textbox.bringToFront();
+	
+	canvas.renderAll();
 	return canvas;
 }
 
@@ -29,7 +43,6 @@ export function addCanvasColor() {
 	});
 
 	canvas.add(canvasColor);
-	canvasColor.
 	canvas.renderAll();
 	return canvasColor;
 }
